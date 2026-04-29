@@ -1,36 +1,54 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+# Upptime config for HubFinda status page
+# Docs: https://upptime.js.org/docs
+
+owner: Bradrad13
+repo: hubfinda-status
 
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Test Broken Site
-    url: https://thissitedoesnotexist.koj.co
-  - name: IPv6 test
-    url: forwardemail.net
-    port: 80
-    check: "tcp-ping"
-    ipv6: true
+  - name: HubFinda Website
+    url: https://www.hubfinda.com/
+  - name: HubFinda API
+    url: https://4pq2t7imukra5admyqumyfqyde0xeueb.lambda-url.ap-southeast-2.on.aws/hsh/status
+    expectedStatusCodes:
+      - 200
+  - name: Hub list (public)
+    url: https://4pq2t7imukra5admyqumyfqyde0xeueb.lambda-url.ap-southeast-2.on.aws/hsh/hubs
+    expectedStatusCodes:
+      - 200
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  cname: status.hubfinda.com
+  name: HubFinda Status
+  introTitle: HubFinda system status
+  introMessage: Live status of HubFinda's website and API. Checked every 5 minutes from GitHub Actions. If something is down, we are probably already on it — for urgent issues email support&#64;hubfinda.com.
+  logoUrl: https://www.hubfinda.com/assets/icons/logo.png
   navbar:
     - title: Status
       href: /
-    - title: GitHub
-      href: https://github.com/$OWNER/$REPO
+    - title: HubFinda
+      href: https://www.hubfinda.com
+    - title: Source
+      href: https://github.com/Bradrad13/hubfinda-status
 
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+# How often to check (cron). Default 5 min is fine; loosen to 10 if you ever
+# burn through GitHub Actions minutes (free tier = 2000 min/mo on private
+# repos; unlimited on public). Public repo recommended.
+workflowSchedule:
+  graphs: "0 0 * * *"          # daily uptime graph regen
+  responseTime: "0 23 * * *"    # daily response-time graph
+  staticSite: "0 1 * * *"       # daily site rebuild
+  summary: "0 0 * * *"          # daily summary
+  updateTemplate: "0 0 * * 1"   # weekly template update
+  updates: "0 3 * * *"          # daily upptime version bump check
+  uptime: "*/5 * * * *"         # every 5 minutes — the main one
+
+# Don't notify anyone publicly via the page when something dies — keeps
+# noise down. The GitHub repo's Issues tab shows a real-time incident log.
+assignees:
+  - Bradrad13
+
+# Optional: if you want PagerDuty / Slack / email alerts, uncomment one
+# of the notify blocks documented at https://upptime.js.org/docs/notifications
+# notifications:
+#   - type: email-sendgrid
+#     ...
