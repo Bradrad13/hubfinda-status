@@ -22,10 +22,10 @@
     "url": "https://4pq2t7imukra5admyqumyfqyde0xeueb.lambda-url.ap-southeast-2.on.aws/hsh/status",
     "icon": "https://icons.duckduckgo.com/ip3/4pq2t7imukra5admyqumyfqyde0xeueb.lambda-url.ap-southeast-2.on.aws.ico",
     "slug": "hub-finda-api",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
-    "uptimeWeek": "100.00%",
+    "uptimeDay": "99.96%",
+    "uptimeWeek": "99.99%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
     "time": 2641,
@@ -33,16 +33,18 @@
     "timeWeek": 2610,
     "timeMonth": 2720,
     "timeYear": 2641,
-    "dailyMinutesDown": {}
+    "dailyMinutesDown": {
+      "2026-06-09": 1
+    }
   },
   {
     "name": "Hub list (public)",
     "url": "https://4pq2t7imukra5admyqumyfqyde0xeueb.lambda-url.ap-southeast-2.on.aws/hsh/hubs",
     "icon": "https://icons.duckduckgo.com/ip3/4pq2t7imukra5admyqumyfqyde0xeueb.lambda-url.ap-southeast-2.on.aws.ico",
     "slug": "hub-list-public",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.99%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
@@ -51,6 +53,8 @@
     "timeWeek": 276,
     "timeMonth": 428,
     "timeYear": 385,
-    "dailyMinutesDown": {}
+    "dailyMinutesDown": {
+      "2026-06-09": 0
+    }
   }
 ]
